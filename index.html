@@ -4,41 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Peptide Powerhouse: A Comprehensive Guide</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Open Sans', sans-serif; background-color: #121212; color: #E0E0E0; line-height: 1.6; }
-        nav {
-            position: sticky; top: 0; background-color: #1E1E1E; padding: 1rem; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-            display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;
+        body {
+            font-family: 'Open Sans', sans-serif; background: linear-gradient(180deg, #121212 0%, #1E1E1E 100%);
+            color: #E0E0E0; line-height: 1.7; padding-top: 70px;
         }
+        nav {
+            position: fixed; top: 0; left: 0; width: 100%; background: #1E1E1E; z-index: 1000;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.6); padding: 0.5rem 1rem;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+        nav.hidden { transform: translateY(-100%); }
         nav a {
-            color: #00F5D4; text-decoration: none; font-weight: bold; font-size: 0.9rem; padding: 0.5rem 1rem;
-            border-radius: 5px; transition: background-color 0.3s, color 0.3s;
+            color: #00F5D4; text-decoration: none; font-weight: 600; font-size: 0.75rem;
+            padding: 0.4rem; border-radius: 5px; text-align: center; transition: background-color 0.3s, color 0.3s;
         }
         nav a:hover { background-color: #00B7EB; color: #121212; }
-        .section { padding: 2rem 0; }
-        .hero {
-            background-size: cover; background-position: center; height: 300px; display: flex; align-items: center; justify-content: center;
-            text-align: center; color: #E0E0E0; font-family: 'Montserrat', sans-serif; text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        .section {
+            margin: 2rem 0; padding: 2rem; background: #1E1E1E; border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3); max-width: 900px; margin-left: auto; margin-right: auto;
         }
-        .hero h1 { font-size: 2.5rem; }
-        .container { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
-        h2 { color: #00F5D4; font-family: 'Montserrat', sans-serif; margin-bottom: 1rem; }
-        p, ul, table { margin-bottom: 1.5rem; }
+        .section h1 {
+            font-family: 'Montserrat', sans-serif; color: #00F5D4; font-size: 2rem;
+            font-weight: 900; margin-bottom: 1.5rem; text-align: center; cursor: pointer;
+        }
+        .section-content { display: none; }
+        .section-content.active { display: block; }
+        h2 { color: #00B7EB; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.5rem; margin: 1.5rem 0 1rem; }
+        p, ul { margin-bottom: 1.5rem; font-size: 0.95rem; }
         ul { list-style-type: disc; margin-left: 2rem; }
-        table { width: 100%; border-collapse: collapse; background-color: #1E1E1E; }
-        th, td { padding: 0.75rem; border: 1px solid #00B7EB; text-align: left; }
-        th { background-color: #00B7EB; color: #121212; }
-        .infographic img { max-width: 100%; height: auto; border-radius: 10px; margin-bottom: 1rem; }
+        table { width: 100%; border-collapse: collapse; background: #252525; border-radius: 5px; overflow: hidden; }
+        th, td { padding: 0.8rem; border: 1px solid #00B7EB; text-align: left; font-size: 0.9rem; }
+        th { background: #00B7EB; color: #121212; font-weight: 600; }
         @media (max-width: 600px) {
-            .hero h1 { font-size: 1.8rem; }
-            nav a { font-size: 0.8rem; padding: 0.5rem; }
+            body { padding-top: 60px; }
+            nav a { font-size: 0.65rem; padding: 0.3rem; }
+            .section { padding: 1.5rem; margin: 1rem; }
+            h1 { font-size: 1.6rem; }
+            h2 { font-size: 1.3rem; }
+            p, ul, th, td { font-size: 0.85rem; }
         }
     </style>
 </head>
 <body>
-    <nav>
+    <nav id="nav">
         <a href="#ss31">SS-31</a>
         <a href="#cjc1295">CJC-1295</a>
         <a href="#ipamorelin">Ipamorelin</a>
@@ -62,230 +74,927 @@
         <a href="#thymosinalpha1">Thymosin Alpha-1</a>
     </nav>
     <section id="intro" class="section">
-        <div class="hero" style="background-image: url('https://via.placeholder.com/1200x300?text=Peptide+Powerhouse');">
-            <h1>Peptide Powerhouse: A Comprehensive Guide</h1>
-        </div>
         <div class="container">
-            <p>Explore the science, benefits, and applications of cutting-edge peptides for health, performance, and longevity.</p>
+            <h1>Peptide Powerhouse: A Comprehensive Guide</h1>
+            <div class="section-content active">
+                <p>Explore the science, benefits, and applications of cutting-edge peptides for health, performance, and longevity. Click on any peptide to expand its details.</p>
+            </div>
         </div>
     </section>
     <section id="ss31" class="section">
-        <div class="hero" style="background-image: url('https://via.placeholder.com/1200x300?text=Mitochondrion+SS-31');">
-            <h1>SS-31</h1>
-        </div>
         <div class="container">
-            <h2>What It Is & How It Works</h2>
-            <p>SS-31 (Elamipretide) is a mitochondria-targeting peptide that stabilizes mitochondrial function, reducing oxidative stress and enhancing ATP production.</p>
-            <h2>Main Benefits</h2>
-            <ul>
-                <li>Energy: Boosts mitochondrial efficiency.</li>
-                <li>Anti-aging: Reduces oxidative damage.</li>
-                <li>Neuroprotection: Supports brain health.</li>
-            </ul>
-            <h2>Clinical Studies</h2>
-            <p>Szeto et al. (2014): Improved mitochondrial function in animal models (<a href="https://pubmed.ncbi.nlm.nih.gov/24682368/">PubMed</a>).</p>
-            <h2>Dosage</h2>
-            <p>10–20 mg/day SubQ, typically cycled for 4–8 weeks.</p>
-            <h2>Pros and Cons</h2>
-            <table>
-                <tr><th>Pros</th><th>Cons</th></tr>
-                <tr><td>Targets mitochondria<br>Promising for aging</td><td>Limited human data<br>Injection-based</td></tr>
-            </table>
-            <h2>Side Effects</h2>
-            <p>Minimal; possible injection site reactions.</p>
-            <h2>Long-Term Safety</h2>
-            <p>Early-stage human trials; animal studies show safety.</p>
-            <h2>Legal Status</h2>
-            <p>Research-only; not FDA-approved.</p>
-            <h2>Applications</h2>
-            <ul><li>Energy enhancement</li><li>Anti-aging</li><li>Neuroprotection</li></ul>
-            <h2>Summary</h2>
-            <table>
-                <tr><th>Aspect</th><th>Details</th></tr>
-                <tr><td>Target</td><td>Mitochondria</td></tr>
-                <tr><td>Benefits</td><td>Energy, anti-aging</td></tr>
-                <tr><td>Dosage</td><td>10–20 mg/day SubQ</td></tr>
-                <tr><td>Status</td><td>Research-only</td></tr>
-            </table>
-            <div class="infographic">
-                <img src="https://via.placeholder.com/600x300?text=SS-31+Mechanism" alt="SS-31 Mechanism">
-                <p>Stabilizes mitochondrial membranes.</p>
+            <h1>SS-31</h1>
+            <div class="section-content">
+                <h2>What It Is & How It Works</h2>
+                <p>SS-31 (Elamipretide) is a synthetic tetrapeptide (D-Arg-2′6′-dimethylTyr-Lys-Phe-NH2) that targets mitochondria, binding to cardiolipin to stabilize the inner mitochondrial membrane. This enhances the electron transport chain, boosts ATP production, and reduces reactive oxygen species (ROS), mitigating oxidative stress. It crosses the blood-brain barrier, concentrating in mitochondria for systemic effects.</p>
+                <h2>Benefits</h2>
+                <ul>
+                    <li><strong>Energy Enhancement:</strong> Improves ATP synthesis, crucial for high-energy tissues like muscles and neurons, enhancing cellular energy by optimizing mitochondrial bioenergetics.</li>
+                    <li><strong>Anti-Aging:</strong> Delays cellular aging by protecting mitochondria from oxidative damage, potentially improving skin health, vitality, and longevity.</li>
+                    <li><strong>Neuroprotection:</strong> Reduces brain oxidative stress, supporting cognitive function in neurodegenerative diseases like Alzheimer’s and Parkinson’s.</li>
+                    <li><strong>Cardioprotection:</strong> Enhances heart function by reducing ischemia/reperfusion injury, improving cardiac energy metabolism.</li>
+                </ul>
+                <h2>Clinical Studies</h2>
+                <p>Szeto et al. (2014) showed reduced ischemia/reperfusion injury (PubMed: 24801158); Phase II trials (2020) improved cardiac function (ClinicalTrials.gov: NCT02814097); randomized trials for mitochondrial myopathy showed muscle function improvements (Neurology: DOI: 10.1212/WNL.0000000000005255).</p>
+                <h2>Dosage</h2>
+                <p>10–20 mg/day subcutaneous (SubQ), cycled for 4–8 weeks. Best administered in the morning on an empty stomach to optimize absorption, as food may reduce bioavailability. Consult a healthcare provider for precise timing based on condition.</p>
+                <h2>Side Effects</h2>
+                <p>None significant reported; limited systemic effects in trials, but monitor for potential allergic reactions.</p>
+                <h2>Long-Term Safety</h2>
+                <p>Limited human data; animal studies suggest safety, but ongoing trials are needed for long-term effects. Regular monitoring recommended for extended use.</p>
+                <h2>Legal Status</h2>
+                <p>Research-only, not FDA-approved. Source from compounding pharmacies with a prescription to ensure quality.</p>
+                <h2>Applications</h2>
+                <ul>
+                    <li>Anti-aging</li>
+                    <li>Energy enhancement</li>
+                    <li>Heart health</li>
+                    <li>Neuroprotection</li>
+                    <li>Muscle function</li>
+                </ul>
+                <h2>Summary</h2>
+                <table>
+                    <tr><th>Aspect</th><th>Details</th></tr>
+                    <tr><td>Target</td><td>Mitochondria</td></tr>
+                    <tr><td>Benefits</td><td>Energy, anti-aging, neuroprotection, cardioprotection</td></tr>
+                    <tr><td>Dosage</td><td>10–20 mg/day SubQ, morning, empty stomach</td></tr>
+                    <tr><td>Status</td><td>Research-only</td></tr>
+                </table>
             </div>
         </div>
     </section>
     <section id="cjc1295" class="section">
-        <div class="hero" style="background-image: url('https://via.placeholder.com/1200x300?text=CJC-1295');">
-            <h1>CJC-1295</h1>
-        </div>
         <div class="container">
-            <h2>What It Is & How It Works</h2>
-            <p>CJC-1295 is a GHRH analog that stimulates growth hormone release, promoting muscle growth and fat loss.</p>
-            <h2>Main Benefits</h2>
-            <ul>
-                <li>Muscle growth: Increases lean mass.</li>
-                <li>Fat loss: Enhances metabolism.</li>
-                <li>Recovery: Improves repair.</li>
-            </ul>
-            <h2>Clinical Studies</h2>
-            <p>Teichman et al. (2006): Increased GH levels in humans (<a href="https://pubmed.ncbi.nlm.nih.gov/16822960/">PubMed</a>).</p>
-            <h2>Dosage</h2>
-            <p>100–200 mcg/day SubQ, cycled 8–12 weeks.</p>
-            <h2>Pros and Cons</h2>
-            <table>
-                <tr><th>Pros</th><th>Cons</th></tr>
-                <tr><td>Effective GH boost<br>Enhances recovery</td><td>Injection-based<br>Grey market sourcing</td></tr>
-            </table>
-            <h2>Side Effects</h2>
-            <p>Flushing, injection site reactions.</p>
-            <h2>Long-Term Safety</h2>
-            <p>Limited long-term human data.</p>
-            <h2>Legal Status</h2>
-            <p>Research-only; grey market common.</p>
-            <h2>Applications</h2>
-            <ul><li>Muscle growth</li><li>Fat loss</li><li>Recovery</li></ul>
-            <h2>Summary</h2>
-            <table>
-                <tr><th>Aspect</th><th>Details</th></tr>
-                <tr><td>Target</td><td>Pituitary gland</td></tr>
-                <tr><td>Benefits</td><td>Muscle, fat loss</td></tr>
-                <tr><td>Dosage</td><td>100–200 mcg/day</td></tr>
-                <tr><td>Status</td><td>Research-only</td></tr>
-            </table>
-            <div class="infographic">
-                <img src="https://via.placeholder.com/600x300?text=CJC-1295+Mechanism" alt="CJC-1295 Mechanism">
-                <p>Stimulates GH release.</p>
+            <h1>CJC-1295</h1>
+            <div class="section-content">
+                <h2>What It Is & How It Works</h2>
+                <p>CJC-1295 is a growth hormone-releasing hormone (GHRH) analog with a drug affinity complex (DAC) for a long half-life, stimulating pituitary growth hormone (GH) release, which increases insulin-like growth factor 1 (IGF-1) levels for sustained anabolic effects.</p>
+                <h2>Benefits</h2>
+                <ul>
+                    <li><strong>Muscle Growth:</strong> Enhances protein synthesis, increasing lean muscle mass by boosting GH and IGF-1 levels in muscle tissue.</li>
+                    <li><strong>Fat Loss:</strong> Increases lipolysis, reducing fat storage, particularly visceral fat, by elevating metabolic rate.</li>
+                    <li><strong>Anti-Aging:</strong> Boosts GH levels, improving skin elasticity, energy, and vitality, countering age-related decline in tissue function.</li>
+                    <li><strong>Recovery:</strong> Speeds tissue repair post-exercise or injury by promoting cell regeneration and reducing inflammation.</li>
+                    <li><strong>Metabolic Health:</strong> Improves insulin sensitivity, aiding glucose metabolism for better metabolic function.</li>
+                </ul>
+                <h2>Clinical Studies</h2>
+                <p>Ionescu et al. (2006) demonstrated increased GH and IGF-1 levels in humans (PubMed: 16352683); animal studies support efficacy for muscle and fat metabolism.</p>
+                <h2>Dosage</h2>
+                <p>100–200 mcg/day SubQ, cycled for 8–12 weeks. Best administered in the evening on an empty stomach to align with natural GH secretion peaks, typically 30–60 minutes before bed. Avoid food 2 hours prior to maximize absorption.</p>
+                <h2>Side Effects</h2>
+                <p>Flushing, headache, mild nausea; rare risks include insulin resistance or joint pain with high doses.</p>
+                <h2>Long-Term Safety</h2>
+                <p>Limited long-term human data; short-term studies show safety, but monitor for GH-related risks like insulin resistance or joint issues with prolonged use.</p>
+                <h2>Legal Status</h2>
+                <p>Research-only, commonly sourced from grey market; obtain from reputable suppliers with a prescription for quality assurance.</p>
+                <h2>Applications</h2>
+                <ul>
+                    <li>Muscle building</li>
+                    <li>Weight loss</li>
+                    <li>Anti-aging</li>
+                    <li>Injury recovery</li>
+                    <li>Metabolic enhancement</li>
+                </ul>
+                <h2>Summary</h2>
+                <table>
+                    <tr><th>Aspect</th><th>Details</th></tr>
+                    <tr><td>Target</td><td>Pituitary gland</td></tr>
+                    <tr><td>Benefits</td><td>Muscle growth, fat loss, anti-aging, recovery</td></tr>
+                    <tr><td>Dosage</td><td>100–200 mcg/day SubQ, evening, empty stomach</td></tr>
+                    <tr><td>Status</td><td>Research-only</td></tr>
+                </table>
             </div>
         </div>
     </section>
     <section id="ipamorelin" class="section">
-        <div class="hero" style="background-image: url('https://via.placeholder.com/1200x300?text=Ipamorelin');">
-            <h1>Ipamorelin</h1>
-        </div>
         <div class="container">
-            <h2>What It Is & How It Works</h2>
-            <p>Ipamorelin is a selective GH secretagogue, stimulating growth hormone with fewer side effects than other GHRPs.</p>
-            <h2>Main Benefits</h2>
-            <ul>
-                <li>Muscle growth: Promotes lean mass.</li>
-                <li>Anti-aging: Improves skin, energy.</li>
-                <li>Low side effects: Minimal cortisol increase.</li>
-            </ul>
-            <h2>Clinical Studies</h2>
-            <p>Gobburu et al. (1999): GH release in humans (<a href="https://pubmed.ncbi.nlm.nih.gov/10561013/">PubMed</a>).</p>
-            <h2>Dosage</h2>
-            <p>100–300 mcg/day SubQ, cycled 8–12 weeks.</p>
-            <h2>Pros and Cons</h2>
-            <table>
-                <tr><th>Pros</th><th>Cons</th></tr>
-                <tr><td>Low side effects<br>Effective GH boost</td><td>Injection-based<br>Grey market</td></tr>
-            </table>
-            <h2>Side Effects</h2>
-            <p>Headache, injection site reactions.</p>
-            <h2>Long-Term Safety</h2>
-            <p>Limited human data; short-term safe.</p>
-            <h2>Legal Status</h2>
-            <p>Research-only; grey market.</p>
-            <h2>Applications</h2>
-            <ul><li>Muscle growth</li><li>Anti-aging</li><li>Recovery</li></ul>
-            <h2>Summary</h2>
-            <table>
-                <tr><th>Aspect</th><th>Details</th></tr>
-                <tr><td>Target</td><td>Pituitary gland</td></tr>
-                <tr><td>Benefits</td><td>Muscle, anti-aging</td></tr>
-                <tr><td>Dosage</td><td>100–300 mcg/day</td></tr>
-                <tr><td>Status</td><td>Research-only</td></tr>
-            </table>
-            <div class="infographic">
-                <img src="https://via.placeholder.com/600x300?text=Ipamorelin+Mechanism" alt="Ipamorelin Mechanism">
-                <p>Selective GH stimulation.</p>
+            <h1>Ipamorelin</h1>
+            <div class="section-content">
+                <h2>What It Is & How It Works</h2>
+                <p>Ipamorelin is a selective growth hormone secretagogue mimicking ghrelin, stimulating pituitary GH release without significantly affecting cortisol or prolactin levels, promoting anabolic effects with minimal side effects.</p>
+                <h2>Benefits</h2>
+                <ul>
+                    <li><strong>Muscle Growth:</strong> Enhances protein synthesis, increasing lean muscle mass via GH and IGF-1 stimulation.</li>
+                    <li><strong>Fat Loss:</strong> Increases lipolysis, reducing fat stores by boosting metabolic rate.</li>
+                    <li><strong>Anti-Aging:</strong> Improves skin elasticity, energy, and vitality through GH-mediated cellular repair.</li>
+                    <li><strong>Recovery:</strong> Speeds tissue repair post-exercise or injury by promoting cell regeneration.</li>
+                    <li><strong>Metabolic Health:</strong> Enhances insulin sensitivity, supporting glucose metabolism.</li>
+                    <li><strong>Cognitive Benefits:</strong> Potential improvement in cognitive function via GH effects on brain health.</li>
+                </ul>
+                <h2>Clinical Studies</h2>
+                <p>Pihoker et al. (1998) showed GH stimulation without cortisol increase (PubMed: 9707202); Beck et al. (2014) demonstrated use in postoperative ileus management (PubMed: 24755647).</p>
+                <h2>Dosage</h2>
+                <p>100–300 mcg/day SubQ, often split into morning and evening doses, cycled for 8–12 weeks. Best administered on an empty stomach, ideally 30 minutes before meals or before bed to align with GH peaks.</p>
+                <h2>Side Effects</h2>
+                <p>Flushing, headache, mild nausea; rare risks include hypoglycemia or increased appetite.</p>
+                <h2>Long-Term Safety</h2>
+                <p>Limited long-term human data; short-term studies indicate safety, but monitor for GH-related risks like hypoglycemia.</p>
+                <h2>Legal Status</h2>
+                <p>Research-only, grey market common; source from reputable suppliers with a prescription.</p>
+                <h2>Applications</h2>
+                <ul>
+                    <li>Muscle building</li>
+                    <li>Weight loss</li>
+                    <li>Anti-aging</li>
+                    <li>Injury recovery</li>
+                    <li>Metabolic enhancement</li>
+                    <li>Cognitive health</li>
+                </ul>
+                <h2>Summary</h2>
+                <table>
+                    <tr><th>Aspect</th><th>Details</th></tr>
+                    <tr><td>Target</td><td>Pituitary gland</td></tr>
+                    <tr><td>Benefits</td><td>Muscle, fat loss, anti-aging, recovery, cognitive</td></tr>
+                    <tr><td>Dosage</td><td>100–300 mcg/day SubQ, morning/evening, empty stomach</td></tr>
+                    <tr><td>Status</td><td>Research-only</td></tr>
+                </table>
             </div>
         </div>
     </section>
     <section id="tesamorelin" class="section">
-        <div class="hero" style="background-image: url('https://via.placeholder.com/1200x300?text=Tesamorelin');">
-            <h1>Tesamorelin</h1>
-        </div>
         <div class="container">
-            <h2>What It Is & How It Works</h2>
-            <p>Tesamorelin is a GHRH analog that reduces visceral fat by stimulating growth hormone release.</p>
-            <h2>Main Benefits</h2>
-            <ul>
-                <li>Fat loss: Targets abdominal fat.</li>
-                <li>Metabolic health: Improves lipid profile.</li>
-                <li>Cognitive support: Enhances brain function.</li>
-            </ul>
-            <h2>Clinical Studies</h2>
-            <p>Falutz et al. (2010): Reduced visceral fat in HIV patients (<a href="https://pubmed.ncbi.nlm.nih.gov/20620666/">PubMed</a>).</p>
-            <h2>Dosage</h2>
-            <p>2 mg/day SubQ, ongoing.</p>
-            <h2>Pros and Cons</h2>
-            <table>
-                <tr><th>Pros</th><th>Cons</th></tr>
-                <tr><td>Effective fat loss<br>FDA-approved for HIV</td><td>Injection-based<br>Costly</td></tr>
-            </table>
-            <h2>Side Effects</h2>
-            <p>Injection site reactions, joint pain.</p>
-            <h2>Long-Term Safety</h2>
-            <p>Well-studied in HIV; limited general data.</p>
-            <h2>Legal Status</h2>
-            <p>Prescription-only for HIV; grey market otherwise.</p>
-            <h2>Applications</h2>
-            <ul><li>Fat loss</li><li>Metabolic health</li><li>Cognitive support</li></ul>
-            <h2>Summary</h2>
-            <table>
-                <tr><th>Aspect</th><th>Details</th></tr>
-                <tr><td>Target</td><td>Visceral fat</td></tr>
-                <tr><td>Benefits</td><td>Fat loss, metabolism</td></tr>
-                <tr><td>Dosage</td><td>2 mg/day SubQ</td></tr>
-                <tr><td>Status</td><td>Prescription/grey</td></tr>
-            </table>
-            <div class="infographic">
-                <img src="https://via.placeholder.com/600x300?text=Tesamorelin+Mechanism" alt="Tesamorelin Mechanism">
-                <p>Reduces visceral fat via GH.</p>
+            <h1>Tesamorelin</h1>
+            <div class="section-content">
+                <h2>What It Is & How It Works</h2>
+                <p>Tesamorelin is a GHRH analog that stimulates pituitary GH release, increasing IGF-1 levels, particularly effective for reducing visceral fat in HIV-associated lipodystrophy.</p>
+                <h2>Benefits</h2>
+                <ul>
+                    <li><strong>Fat Loss:</strong> Reduces visceral abdominal fat, improving body composition by enhancing lipolysis.</li>
+                    <li><strong>Muscle Growth:</strong> Promotes protein synthesis, increasing lean muscle mass via GH/IGF-1.</li>
+                    <li><strong>Metabolic Health:</strong> Improves insulin sensitivity and lipid profiles, reducing cardiovascular risk factors.</li>
+                    <li><strong>Anti-Aging:</strong> Enhances skin elasticity and energy through GH-mediated cellular repair.</li>
+                    <li><strong>Cardiovascular Benefits:</strong> Potential reduction in cardiovascular risk via improved lipid profiles.</li>
+                </ul>
+                <h2>Clinical Studies</h2>
+                <p>FDA-approved for HIV lipodystrophy; Phase III trials showed visceral fat reduction (PubMed: 19841358, 20620666).</p>
+                <h2>Dosage</h2>
+                <p>1 mg/day SubQ, ongoing for 6–12 months. Best administered in the evening on an empty stomach to align with natural GH secretion peaks, typically 30–60 minutes before bed.</p>
+                <h2>Side Effects</h2>
+                <p>Headache, mild nausea; rare risks include hyperglycemia or joint pain.</p>
+                <h2>Long-Term Safety</h2>
+                <p>Well-studied in HIV patients, safe for up to 2 years; monitor glucose levels for long-term use.</p>
+                <h2>Legal Status</h2>
+                <p>FDA-approved for HIV lipodystrophy, prescription-only; grey market for non-HIV use.</p>
+                <h2>Applications</h2>
+                <ul>
+                    <li>HIV lipodystrophy</li>
+                    <li>Muscle building</li>
+                    <li>Metabolic health</li>
+                    <li>Anti-aging</li>
+                    <li>Cardiovascular health</li>
+                </ul>
+                <h2>Summary</h2>
+                <table>
+                    <tr><th>Aspect</th><th>Details</th></tr>
+                    <tr><td>Target</td><td>Visceral fat</td></tr>
+                    <tr><td>Benefits</td><td>Fat loss, muscle, metabolic, anti-aging</td></tr>
+                    <tr><td>Dosage</td><td>1 mg/day SubQ, evening, empty stomach</td></tr>
+                    <tr><td>Status</td><td>Prescription/grey</td></tr>
+                </table>
             </div>
         </div>
     </section>
     <section id="epitalon" class="section">
-        <div class="hero" style="background-image: url('https://via.placeholder.com/1200x300?text=Epitalon');">
-            <h1>Epitalon</h1>
-        </div>
         <div class="container">
-            <h2>What It Is & How It Works</h2>
-            <p>Epitalon is a synthetic tetrapeptide that regulates telomerase activity, potentially extending cell lifespan.</p>
-            <h2>Main Benefits</h2>
-            <ul>
-                <li>Anti-aging: May lengthen telomeres.</li>
-                <li>Sleep regulation: Improves melatonin production.</li>
-                <li>Longevity: Supports cellular health.</li>
-            </ul>
-            <h2>Clinical Studies</h2>
-            <p>Khavinson et al. (2003): Anti-aging effects in animals (<a href="https://pubmed.ncbi.nlm.nih.gov/12946282/">PubMed</a>).</p>
-            <h2>Dosage</h2>
-            <p>5–10 mg/day SubQ, cycled 10–20 days biannually.</p>
-            <h2>Pros and Cons</h2>
-            <table>
-                <tr><th>Pros</th><th>Cons</th></tr>
-                <tr><td>Promising longevity<br>Improves sleep</td><td>Limited human data<br>Injection-based</td></tr>
-            </table>
-            <h2>Side Effects</h2>
-            <p>Minimal; possible injection site reactions.</p>
-            <h2>Long-Term Safety</h2>
-            <p>Insufficient human data; animal studies promising.</p>
-            <h2>Legal Status</h2>
-            <p>Research-only; grey market common.</p>
-            <h2>Applications</h2>
-            <ul><li>Anti-aging</li><li>Sleep regulation</li><li>Longevity</li></ul>
-            <h2>Summary</h2>
-            <table>
-                <tr><th>Aspect</th><th>Details</th></tr>
-                <tr><td>Target</td><td>Telomeres</td></tr>
-                <tr><td>Benefits</td><td>Anti-aging, sleep</td></tr>
-                <tr><td>Dosage</td><td>5–10 mg/day SubQ</td></tr>
-                <tr><td>Status</td><td>Research-only</td></tr>
-            </table>
-            <div class="infographic">
-                <img src="https://via.placeholder.com/600x300?text=Epitalon+Mechanism" alt="Epitalon Mechanism">
-                <p>Regulates telomerase activity.</p>
+            <h1>Epitalon</h1>
+            <div class="section-content">
+                <h2>What It Is & How It Works</h2>
+                <p>Epitalon is a synthetic tetrapeptide that stimulates telomerase activity, lengthening telomeres to delay cellular aging, and regulates melatonin production for sleep improvement.</p>
+                <h2>Benefits</h2>
+                <ul>
+                    <li><strong>Anti-Aging:</strong> Extends cell lifespan by lengthening telomeres, improving DNA integrity and reducing age-related cellular decline.</li>
+                    <li><strong>Sleep Regulation:</strong> Enhances melatonin production, improving circadian rhythms and sleep quality.</li>
+                    <li><strong>Immune Support:</strong> Boosts immune cell production, enhancing immune response.</li>
+                    <li><strong>Cardiovascular Health:</strong> Reduces age-related vascular decline by supporting endothelial function.</li>
+                    <li><strong>Cancer Prevention:</strong> Potential regulation of cell growth to reduce cancer risk.</li>
+                </ul>
+                <h2>Clinical Studies</h2>
+                <p>Khavinson et al. (2020) showed gene expression during neurogenesis (PubMed: 32019204); Anisimov and Khavinson (2009) reviewed anti-aging effects.</p>
+                <h2>Dosage</h2>
+                <p>5–10 mg/day SubQ, cycled 20 days on, 10–20 days off. Best administered in the evening, 30–60 minutes before bed on an empty stomach to enhance melatonin effects.</p>
+                <h2>Side Effects</h2>
+                <p>Nausea, stomach discomfort; rare risks include hormonal imbalances.</p>
+                <h2>Long-Term Safety</h2>
+                <p>Limited human data; animal studies suggest safety, but monitor for hormonal changes with long-term use.</p>
+                <h2>Legal Status</h2>
+                <p>Research-only, grey market common; source from reputable suppliers with a prescription.</p>
+                <h2>Applications</h2>
+                <ul>
+                    <li>Anti-aging</li>
+                    <li>Sleep regulation</li>
+                    <li>Immune support</li>
+                    <li>Cardiovascular health</li>
+                    <li>Potential cancer prevention</li>
+                </ul>
+                <h2>Summary</h2>
+                <table>
+                    <tr><th>Aspect</th><th>Details</th></tr>
+                    <tr><td>Target</td><td>Telomeres, melatonin</td></tr>
+                    <tr><td>Benefits</td><td>Anti-aging, sleep, immunity, cardiovascular</td></tr>
+                    <tr><td>Dosage</td><td>5–10 mg/day SubQ, evening, empty stomach</td></tr>
+                    <tr><td>Status</td><td>Research-only</td></tr>
+                </table>
             </div>
         </div>
     </section>
+    <section id="motsc" class="section">
+        <div class="container">
+            <h1>MOTS-c</h1>
+            <div class="section-content">
+                <h2>What It Is & How It Works</h2>
+                <p>MOTS-c is a mitochondrial-derived peptide that activates AMP-activated protein kinase (AMPK), enhancing glucose uptake, increasing insulin sensitivity, and promoting fat oxidation.</p>
+                <h2>Benefits</h2>
+                <ul>
+                    <li><strong>Metabolic Health:</strong> Enhances glucose metabolism, improving insulin sensitivity and reducing fat storage.</li>
+                    <li><strong>Fat Loss:</strong> Promotes fat oxidation, mimicking exercise effects to reduce body fat.</li>
+                    <li><strong>Energy Regulation:</strong> Boosts mitochondrial function, increasing cellular energy production for improved vitality.</li>
+                    <li><strong>Longevity:</strong> Reduces age-related decline by protecting mitochondrial health.</li>
+                    <li><strong>Muscle Health:</strong> Improves glucose uptake in muscles, supporting strength and endurance.</li>
+                    <li><strong>Cardiovascular Protection:</strong> Reduces oxidative stress in vascular tissues, supporting heart health.</li>
+                </ul>
+                <h2>Clinical Studies</h2>
+                <p>Reynolds et al. (2021) showed regulation of age-dependent physical decline (PubMed: 33446700).</p>
+                <h2>Dosage</h2>
+                <p>10–20 mg/day SubQ, cycled for 4–8 weeks. Best administered in the morning on an empty stomach to support metabolic activity, ideally 30 minutes before breakfast.</p>
+                <h2>Side Effects</h2>
+                <p>Fatigue, headache, mild nausea; rare risks include allergic reactions.</p>
+                <h2>Long-Term Safety</h2>
+                <p>Limited long-term human data; animal studies suggest safety, monitor for oxidative stress or allergic reactions.</p>
+                <h2>Legal Status</h2>
+                <p>Research-only, grey market common; source from reputable suppliers with a prescription.</p>
+                <h2>Applications</h2>
+                <ul>
+                    <li>Metabolic disorders</li>
+                    <li>Weight management</li>
+                    <li>Athletic performance</li>
+                    <li>Anti-aging</li>
+                    <li>Cardiovascular health</li>
+                </ul>
+                <h2>Summary</h2>
+                <table>
+                    <tr><th>Aspect</th><th>Details</th></tr>
+                    <tr><td>Target</td><td>Mitochondria, AMPK</td></tr>
+                    <tr><td>Benefits</td><td>Metabolic health, fat loss, energy, longevity</td></tr>
+                    <tr><td>Dosage</td><td>10–20 mg/day SubQ, morning, empty stomach</td></tr>
+                    <tr><td>Status</td><td>Research-only</td></tr>
+                </table>
+            </div>
+        </div>
+    </section>
+    <section id="igf1lr3" class="section">
+        <div class="container">
+            <h1>IGF-1 LR3</h1>
+            <div class="section-content">
+                <h2>What It Is & How It Works</h2>
+                <p>IGF-1 LR3 is a synthetic insulin-like growth factor 1 analog with a longer half-life, promoting cell proliferation, protein synthesis, and glucose uptake in muscles and fat tissues.</p>
+                <h2>Benefits</h2>
+                <ul>
+                    <li><strong>Muscle Growth:</strong> Increases cell numbers and size through enhanced protein synthesis, boosting muscle hypertrophy.</li>
+                    <li><strong>Fat Loss:</strong> Enhances fat metabolism, reducing adipose tissue via increased lipolysis.</li>
+                    <li><strong>Recovery:</strong> Accelerates tissue repair post-exercise or injury by promoting cell regeneration.</li>
+                    <li><strong>Performance:</strong> Improves strength and endurance by enhancing muscle glucose uptake.</li>
+                    <li><strong>Anti-Aging:</strong> Supports cellular repair, improving skin health and vitality.</li>
+                </ul>
+                <h2>Clinical Studies</h2>
+                <p>Clemmons (2012) reviewed anabolic effects of IGF-1 analogs (PubMed: 22365543).</p>
+                <h2>Dosage</h2>
+                <p>20–100 mcg/day SubQ, cycled for 4–8 weeks. Best administered in the morning or post-workout on an empty stomach to maximize absorption and anabolic effects, ideally 30 minutes before meals.</p>
+                <h2>Side Effects</h2>
+                <p>Hypoglycemia, joint pain, water retention; rare risks include potential organ growth or cancer risk due to cell proliferation.</p>
+                <h2>Long-Term Safety</h2>
+                <p>Limited long-term human data; monitor for insulin resistance or organ enlargement with prolonged use.</p>
+                <h2>Legal Status</h2>
+                <p>Research-only, grey market common; source from reputable suppliers with a prescription.</p>
+                <h2>Applications</h2>
+                <ul>
+                    <li>Bodybuilding</li>
+                    <li>Weight loss</li>
+                    <li>Athletic performance</li>
+                    <li>Injury recovery</li>
+                    <li>Anti-aging</li>
+                </ul>
+                <h2>Summary</h2>
+                <table>
+                    <tr><th>Aspect</th><th>Details</th></tr>
+                    <tr><td>Target</td><td>Muscle, fat tissue</td></tr>
+                    <tr><td>Benefits</td><td>Muscle growth, fat loss, recovery, performance</td></tr>
+                    <tr><td>Dosage</td><td>20–100 mcg/day SubQ, morning/post-workout, empty stomach</td></tr>
+                    <tr><td>Status</td><td>Research-only</td></tr>
+                </table>
+            </div>
+        </div>
+    </section>
+    <section id="retatrutide" class="section">
+        <div class="container">
+            <h1>Retatrutide</h1>
+            <div class="section-content">
+                <h2>What It Is & How It Works</h2>
+                <p>Retatrutide is a triple hormone receptor agonist (GIP, GLP-1, glucagon) that enhances insulin secretion, suppresses appetite, increases energy expenditure, and promotes fat breakdown.</p>
+                <h2>Benefits</h2>
+                <ul>
+                    <li><strong>Weight Loss:</strong> Significantly reduces body weight by suppressing appetite and increasing fat metabolism.</li>
+                    <li><strong>Metabolic Health:</strong> Improves HbA1c levels, enhancing insulin sensitivity and glucose control.</li>
+                    <li><strong>Cardiovascular Benefits:</strong> Reduces cardiovascular risk factors by improving lipid profiles and blood pressure.</li>
+                    <li><strong>Appetite Suppression:</strong> Enhances satiety, aiding adherence to calorie-restricted diets.</li>
+                    <li><strong>Fat Breakdown:</strong> Promotes lipolysis, improving body composition.</li>
+                </ul>
+                <h2>Clinical Studies</h2>
+                <p>Phase 2 Trial (NEJM, 2023) showed 24% weight loss in 48 weeks (NEJM: DOI: 10.1056/NEJMoa2301972).</p>
+                <h2>Dosage</h2>
+                <p>1–12 mg/week SubQ, titrated gradually (start at 1 mg, increase monthly), ongoing for 48 weeks in trials. Can be administered with or without food, once weekly at any time of day for convenience.</p>
+                <h2>Side Effects</h2>
+                <p>Nausea, vomiting, diarrhea; rare risks include pancreatitis or gallbladder issues.</p>
+                <h2>Long-Term Safety</h2>
+                <p>Limited long-term data, ongoing trials; monitor for pancreatic or thyroid effects with prolonged use.</p>
+                <h2>Legal Status</h2>
+                <p>In clinical trials, not yet FDA-approved; source through trial participation or research channels.</p>
+                <h2>Applications</h2>
+                <ul>
+                    <li>Obesity</li>
+                    <li>Type 2 diabetes</li>
+                    <li>Metabolic syndrome</li>
+                    <li>Cardiovascular health</li>
+                </ul>
+                <h2>Summary</h2>
+                <table>
+                    <tr><th>Aspect</th><th>Details</th></tr>
+                    <tr><td>Target</td><td>GIP, GLP-1, glucagon receptors</td></tr>
+                    <tr><td>Benefits</td><td>Weight loss, metabolic health, cardiovascular</td></tr>
+                    <tr><td>Dosage</td><td>1–12 mg/week SubQ, weekly, any time</td></tr>
+                    <tr><td>Status</td><td>Clinical trials</td></tr>
+                </table>
+            </div>
+        </div>
+    </section>
+    <section id="aod9604" class="section">
+        <div class="container">
+            <h1>AOD-9604</h1>
+            <div class="section-content">
+                <h2>What It Is & How It Works</h2>
+                <p>AOD-9604 is a synthetic fragment of human growth hormone (hGH 177–191) that stimulates lipolysis and inhibits lipogenesis, targeting fat cells without affecting IGF-1 levels.</p>
+                <h2>Benefits</h2>
+                <ul>
+                    <li><strong>Fat Loss:</strong> Breaks down stored fat, particularly visceral fat, by enhancing lipolysis.</li>
+                    <li><strong>Metabolic Health:</strong> Improves lipid profiles, reducing cholesterol and cardiovascular risk.</li>
+                    <li><strong>Muscle Preservation:</strong> Maintains lean muscle mass during weight loss by sparing protein catabolism.</li>
+                    <li><strong>Bone Health:</strong> Potential to improve bone density by supporting osteoblast activity.</li>
+                </ul>
+                <h2>Clinical Studies</h2>
+                <p>Stier et al. (2013) showed safety and tolerability (Journal of Endocrinology and Metabolism); Moré et al. (2013) confirmed fat-reducing effects.</p>
+                <h2>Dosage</h2>
+                <p>300 mcg/day SubQ, cycled for 4–8 weeks. Best administered in the morning on an empty stomach to enhance fat metabolism, ideally 30 minutes before breakfast.</p>
+                <h2>Side Effects</h2>
+                <p>Headache, mild gastrointestinal discomfort; rare risks include allergic reactions.</p>
+                <h2>Long-Term Safety</h2>
+                <p>Limited long-term data; short-term studies suggest safety, monitor for metabolic changes.</p>
+                <h2>Legal Status</h2>
+                <p>Research-only, grey market common; source from reputable suppliers with a prescription.</p>
+                <h2>Applications</h2>
+                <ul>
+                    <li>Weight loss</li>
+                    <li>Metabolic health</li>
+                    <li>Muscle preservation</li>
+                    <li>Bone health</li>
+                </ul>
+                <h2>Summary</h2>
+                <table>
+                    <tr><th>Aspect</th><th>Details</th></tr>
+                    <tr><td>Target</td><td>Fat cells</td></tr>
+                    <tr><td>Benefits</td><td>Fat loss, metabolic health, muscle preservation</td></tr>
+                    <tr><td>Dosage</td><td>300 mcg/day SubQ, morning, empty stomach</td></tr>
+                    <tr><td>Status</td><td>Research-only</td></tr>
+                </table>
+            </div>
+        </div>
+    </section>
+    <section id="lcarnitine" class="section">
+        <div class="container">
+            <h1>L-Carnitine</h1>
+            <div class="section-content">
+                <h2>What It Is & How It Works</h2>
+                <p>L-Carnitine is an amino acid derivative that facilitates fatty acid transport into mitochondria for energy production, supporting fat metabolism and cellular energy.</p>
+                <h2>Benefits</h2>
+                <ul>
+                    <li><strong>Fat Loss:</strong> Enhances fat oxidation, reducing adipose tissue by increasing mitochondrial fatty acid utilization.</li>
+                    <li><strong>Energy Production:</strong> Boosts mitochondrial function, improving cellular energy for physical and mental performance.</li>
+                    <li><strong>Muscle Recovery:</strong> Reduces exercise-induced muscle soreness by minimizing oxidative damage.</li>
+                    <li><strong>Heart Health:</strong> Supports cardiac energy metabolism, improving heart function in cardiovascular conditions.</li>
+                    <li><strong>Cognitive Function:</strong> Protects neurons from oxidative stress, potentially enhancing memory and focus.</li>
+                </ul>
+                <h2>Clinical Studies</h2>
+                <p>WebMD (2023) reviewed benefits for heart health and weight loss (WebMD: L-Carnitine); Healthline (2024) discussed fat loss and energy benefits (Healthline: L-Carnitine).</p>
+                <h2>Dosage</h2>
+                <p>500–2000 mg/day oral, continuous use. Best taken in the morning or 30–60 minutes before workouts, with carbohydrates to enhance absorption; can be taken with or without food.</p>
+                <h2>Side Effects</h2>
+                <p>Nausea, vomiting, diarrhea at high doses; rare risks include muscle weakness in kidney disease or seizures in seizure disorders.</p>
+                <h2>Long-Term Safety</h2>
+                <p>Well-studied, safe up to 2000 mg/day; monitor kidney function for long-term use, especially in renal conditions.</p>
+                <h2>Legal Status</h2>
+                <p>Dietary supplement, widely available; source from reputable suppliers for quality assurance.</p>
+                <h2>Applications</h2>
+                <ul>
+                    <li>Weight loss</li>
+                    <li>Athletic performance</li>
+                    <li>Heart health</li>
+                    <li>Cognitive health</li>
+                    <li>Muscle recovery</li>
+                </ul>
+                <h2>Summary</h2>
+                <table>
+                    <tr><th>Aspect</th><th>Details</th></tr>
+                    <tr><td>Target</td><td>Mitochondria, fatty acids</td></tr>
+                    <tr><td>Benefits</td><td>Fat loss, energy, heart, cognitive health</td></tr>
+                    <tr><td>Dosage</td><td>500–2000 mg/day oral, morning/pre-workout</td></tr>
+                    <tr><td>Status</td><td>Dietary supplement</td></tr>
+                </table>
+            </div>
+        </div>
+    </section>
+    <section id="nad" class="section">
+        <div class="container">
+            <h1>NAD+</h1>
+            <div class="section-content">
+                <h2>What It Is & How It Works</h2>
+                <p>NAD+ is a coenzyme critical for cellular energy production, DNA repair, and sirtuin activation, supporting mitochondrial function and anti-aging processes.</p>
+                <h2>Benefits</h2>
+                <ul>
+                    <li><strong>Energy Boost:</strong> Enhances mitochondrial ATP production, improving physical and mental energy.</li>
+                    <li><strong>Anti-Aging:</strong> Supports DNA repair and sirtuin activity, slowing cellular aging and improving vitality.</li>
+                    <li><strong>Cognitive Health:</strong> Protects neurons from oxidative stress, potentially enhancing memory and focus.</li>
+                    <li><strong>Metabolic Health:</strong> Improves glucose metabolism, aiding insulin sensitivity and fat metabolism.</li>
+                    <li><strong>Muscle Function:</strong> Enhances muscle recovery by supporting mitochondrial health.</li>
+                </ul>
+                <h2>Clinical Studies</h2>
+                <p>WebMD (2022) reviewed NADH benefits (WebMD: NADH); Healthline (2024) discussed NAD+ roles in aging and energy (Healthline: Nicotinamide Riboside).</p>
+                <h2>Dosage</h2>
+                <p>Nicotinamide Riboside (NR): 250–500 mg/day oral; Nicotinamide Mononucleotide (NMN): 250–900 mg/day oral; IV NAD+: 500–1500 mg/session, continuous use. Best taken in the morning, with or without food, for energy support.</p>
+                <h2>Side Effects</h2>
+                <p>Gastrointestinal issues at high doses; rare risks include allergic reactions or liver toxicity.</p>
+                <h2>Long-Term Safety</h2>
+                <p>Generally safe, but more research needed for high doses; monitor liver function for long-term use.</p>
+                <h2>Legal Status</h2>
+                <p>Dietary supplement, widely available; source from reputable suppliers for quality.</p>
+                <h2>Applications</h2>
+                <ul>
+                    <li>Anti-aging</li>
+                    <li>Energy enhancement</li>
+                    <li>Cognitive health</li>
+                    <li>Metabolic health</li>
+                    <li>Athletic performance</li>
+                </ul>
+                <h2>Summary</h2>
+                <table>
+                    <tr><th>Aspect</th><th>Details</th></tr>
+                    <tr><td>Target</td><td>Mitochondria, DNA repair</td></tr>
+                    <tr><td>Benefits</td><td>Energy, anti-aging, cognitive, metabolic</td></tr>
+                    <tr><td>Dosage</td><td>250–900 mg/day oral, morning</td></tr>
+                    <tr><td>Status</td><td>Dietary supplement</td></tr>
+                </table>
+            </div>
+        </div>
+    </section>
+    <section id="ghkcu" class="section">
+        <div class="container">
+            <h1>GHK-Cu</h1>
+            <div class="section-content">
+                <h2>What It Is & How It Works</h2>
+                <p>GHK-Cu is a copper-binding tripeptide that promotes collagen synthesis, reduces inflammation, and acts as an antioxidant, supporting skin and tissue health.</p>
+                <h2>Benefits</h2>
+                <ul>
+                    <li><strong>Skin Health:</strong> Improves elasticity and reduces wrinkles by stimulating collagen and elastin production.</li>
+                    <li><strong>Hair Growth:</strong> Stimulates hair follicle activity, promoting hair growth and thickness.</li>
+                    <li><strong>Anti-Aging:</strong> Supports tissue regeneration, enhancing overall vitality and reducing age-related decline.</li>
+                    <li><strong>Wound Healing:</strong> Promotes angiogenesis and tissue repair for faster wound recovery.</li>
+                    <li><strong>Joint Health:</strong> Reduces inflammation, supporting joint function and mobility.</li>
+                </ul>
+                <h2>Clinical Studies</h2>
+                <p>Pickart et al. (2015) showed skin remodeling benefits (PubMed: 26184473); Sikorska et al. (2018) suggested cognitive benefits (PMC: 6073405).</p>
+                <h2>Dosage</h2>
+                <p>Topical: 2–4% concentration, applied morning and night; Injectable: 0.1–1.0% (5 mg vials), once daily, ongoing. Topical can be applied with or without food; injectable best in the evening.</p>
+                <h2>Side Effects</h2>
+                <p>Mild skin irritation (topical); rare risks include allergic reactions.</p>
+                <h2>Long-Term Safety</h2>
+                <p>Well-studied, safe for long-term use; monitor for skin reactions with prolonged topical application.</p>
+                <h2>Legal Status</h2>
+                <p>Dietary supplement/cosmetic, widely available; source from reputable suppliers.</p>
+                <h2>Applications</h2>
+                <ul>
+                    <li>Skin care</li>
+                    <li>Hair care</li>
+                    <li>Anti-aging</li>
+                    <li>Wound healing</li>
+                    <li>Joint health</li>
+                </ul>
+                <h2>Summary</h2>
+                <table>
+                    <tr><th>Aspect</th><th>Details</th></tr>
+                    <tr><td>Target</td><td>Skin, hair, tissue</td></tr>
+                    <tr><td>Benefits</td><td>Skin, hair, anti-aging, wound healing</td></tr>
+                    <tr><td>Dosage</td><td>Topical 2–4%, injectable 0.1–1.0%, morning/night</td></tr>
+                    <tr><td>Status</td><td>Supplement/cosmetic</td></tr>
+                </table>
+            </div>
+        </div>
+    </section>
+    <section id="ahkcu" class="section">
+        <div class="container">
+            <h1>AHK-Cu</h1>
+            <div class="section-content">
+                <h2>What It Is & How It Works</h2>
+                <p>AHK-Cu is a copper-binding tripeptide similar to GHK-Cu, focusing on hair growth and scalp health by promoting blood vessel growth and collagen synthesis.</p>
+                <h2>Benefits</h2>
+                <ul>
+                    <li><strong>Hair Growth:</strong> Enhances hair follicle activity, promoting hair growth and thickness.</li>
+                    <li><strong>Skin Health:</strong> Supports collagen production, improving skin elasticity and reducing wrinkles.</li>
+                    <li><strong>Scalp Health:</strong> Reduces inflammation, improving scalp condition for hair growth.</li>
+                    <li><strong>Anti-Aging:</strong> Supports tissue regeneration, enhancing vitality.</li>
+                </ul>
+                <h2>Clinical Studies</h2>
+                <p>Limited studies; similar to GHK-Cu, with focus on hair growth (Biotech Peptides: AHK-Cu).</p>
+                <h2>Dosage</h2>
+                <p>Topical: 2–4% concentration, applied morning and night; Injectable: 0.1–1.0% (5 mg vials), once daily, ongoing. Topical can be applied with or without food; injectable best in the evening.</p>
+                <h2>Side Effects</h2>
+                <p>Mild skin irritation (topical); rare risks include allergic reactions.</p>
+                <h2>Long-Term Safety</h2>
+                <p>Limited long-term data; similar to GHK-Cu, monitor for skin reactions.</p>
+                <h2>Legal Status</h2>
+                <p>Dietary supplement/cosmetic, widely available; source from reputable suppliers.</p>
+                <h2>Applications</h2>
+                <ul>
+                    <li>Hair care</li>
+                    <li>Skin care</li>
+                    <li>Scalp health</li>
+                    <li>Anti-aging</li>
+                </ul>
+                <h2>Summary</h2>
+                <table>
+                    <tr><th>Aspect</th><th>Details</th></tr>
+                    <tr><td>Target</td><td>Hair follicles, skin</td></tr>
+                    <tr><td>Benefits</td><td>Hair growth, skin, scalp health, anti-aging</td></tr>
+                    <tr><td>Dosage</td><td>Topical 2–4%, injectable 0.1–1.0%, morning/night</td></tr>
+                    <tr><td>Status</td><td>Supplement/cosmetic</td></tr>
+                </table>
+            </div>
+        </div>
+    </section>
+    <section id="glowstack" class="section">
+        <div class="container">
+            <h1>Glow Stack</h1>
+            <div class="section-content">
+                <h2>What It Is & How It Works</h2>
+                <p>Glow Stack combines GHK-Cu (collagen synthesis, skin health), AHK-Cu (hair growth, scalp health), and NAD+ (energy, DNA repair) to synergistically enhance skin, hair, and cellular health.</p>
+                <h2>Benefits</h2>
+                <ul>
+                    <li><strong>Skin Health:</strong> Improves elasticity and reduces wrinkles via GHK-Cu’s collagen synthesis and NAD+’s cellular repair.</li>
+                    <li><strong>Hair Growth:</strong> Stimulates hair follicles through AHK-Cu, enhancing hair thickness.</li>
+                    <li><strong>Anti-Aging:</strong> Supports tissue regeneration and DNA repair, improving vitality.</li>
+                    <li><strong>Energy Boost:</strong> Enhances mitochondrial function via NAD+, improving physical and mental energy.</li>
+                    <li><strong>Wound Healing:</strong> Promotes tissue repair through GHK-Cu and NAD+ synergy.</li>
+                </ul>
+                <h2>Clinical Studies</h2>
+                <p>Individual components studied: GHK-Cu (PubMed: 26184473), NAD+ (Healthline: Nicotinamide Riboside); no specific trials for the combination.</p>
+                <h2>Dosage</h2>
+                <p>GHK-Cu/AHK-Cu: Topical 2–4% concentration, applied morning and night; Injectable 0.1–1.0% (5 mg vials), once daily; NAD+: 250–500 mg/day oral, ongoing. NAD+ best in the morning, injectables in the evening, topical anytime.</p>
+                <h2>Side Effects</h2>
+                <p>Mild skin irritation (topical); rare risks include allergic reactions or gastrointestinal issues from NAD+.</p>
+                <h2>Long-Term Safety</h2>
+                <p>Limited data for combination; individual components safe, monitor for skin reactions or NAD+ effects.</p>
+                <h2>Legal Status</h2>
+                <p>Dietary supplement/cosmetic, widely available; source from reputable suppliers.</p>
+                <h2>Applications</h2>
+                <ul>
+                    <li>Skin care</li>
+                    <li>Hair care</li>
+                    <li>Anti-aging</li>
+                    <li>Energy support</li>
+                    <li>Wound healing</li>
+                </ul>
+                <h2>Summary</h2>
+                <table>
+                    <tr><th>Aspect</th><th>Details</th></tr>
+                    <tr><td>Target</td><td>Skin, hair, mitochondria</td></tr>
+                    <tr><td>Benefits</td><td>Skin, hair, anti-aging, energy, healing</td></tr>
+                    <tr><td>Dosage</td><td>Topical 2–4%, injectable 0.1–1.0%, NAD+ 250–500 mg/day</td></tr>
+                    <tr><td>Status</td><td>Supplement/cosmetic</td></tr>
+                </table>
+            </div>
+        </div>
+    </section>
+    <section id="bpc157" class="section">
+        <div class="container">
+            <h1>BPC-157</h1>
+            <div class="section-content">
+                <h2>What It Is & How It Works</h2>
+                <p>BPC-157 is a synthetic peptide derived from gastric juice, promoting angiogenesis, collagen synthesis, and reducing inflammation for tissue repair.</p>
+                <h2>Benefits</h2>
+                <ul>
+                    <li><strong>Wound Healing:</strong> Accelerates tissue repair by promoting angiogenesis and fibroblast activity.</li>
+                    <li><strong>Tendon/Ligament Repair:</strong> Enhances collagen production, speeding recovery of tendons and ligaments.</li>
+                    <li><strong>Muscle Recovery:</strong> Reduces inflammation, aiding post-exercise muscle repair.</li>
+                    <li><strong>Gastrointestinal Health:</strong> Heals ulcers and repairs GI tissue by reducing inflammation.</li>
+                    <li><strong>Joint Health:</strong> Supports cartilage repair, improving joint function.</li>
+                </ul>
+                <h2>Clinical Studies</h2>
+                <p>Sikiric et al. (2010) showed tendon healing in rats (PubMed: 21030672); Chang et al. (2011) treated IBD in animals (PubMed: 21767456).</p>
+                <h2>Dosage</h2>
+                <p>200–1000 mcg/day SubQ or intramuscular (IM), cycled until healing achieved (typically 4–6 weeks). Can be administered once daily, often in the evening, with or without food for flexibility.</p>
+                <h2>Side Effects</h2>
+                <p>Nausea; rare risks include allergic reactions.</p>
+                <h2>Long-Term Safety</h2>
+                <p>Limited human data; animal studies suggest safety, monitor for long-term effects.</p>
+                <h2>Legal Status</h2>
+                <p>Research chemical, widely available; source from reputable suppliers.</p>
+                <h2>Applications</h2>
+                <ul>
+                    <li>Injury recovery</li>
+                    <li>Wound care</li>
+                    <li>Gastrointestinal disorders</li>
+                    <li>Joint health</li>
+                    <li>Athletic performance</li>
+                </ul>
+                <h2>Summary</h2>
+                <table>
+                    <tr><th>Aspect</th><th>Details</th></tr>
+                    <tr><td>Target</td><td>Tissue repair, inflammation</td></tr>
+                    <tr><td>Benefits</td><td>Wound healing, tendon/ligament, GI health</td></tr>
+                    <tr><td>Dosage</td><td>200–1000 mcg/day SubQ/IM, evening</td></tr>
+                    <tr><td>Status</td><td>Research chemical</td></tr>
+                </table>
+            </div>
+        </div>
+    </section>
+    <section id="tb500" class="section">
+        <div class="container">
+            <h1>TB-500</h1>
+            <div class="section-content">
+                <h2>What It Is & How It Works</h2>
+                <p>TB-500 is a synthetic fragment of Thymosin Beta-4, upregulating actin for cell migration, reducing inflammation, and promoting collagen synthesis for tissue repair.</p>
+                <h2>Benefits</h2>
+                <ul>
+                    <li><strong>Injury Recovery:</strong> Accelerates healing of tendons, ligaments, and muscles by promoting cell migration and collagen production.</li>
+                    <li><strong>Wound Healing:</strong> Enhances tissue regeneration through angiogenesis and fibroblast activity.</li>
+                    <li><strong>Flexibility:</strong> Improves joint function by reducing inflammation and supporting tissue repair.</li>
+                    <li><strong>Skin Health:</strong> Supports collagen synthesis, improving skin elasticity.</li>
+                    <li><strong>Cardiovascular Health:</strong> Enhances blood vessel growth, supporting vascular repair.</li>
+                </ul>
+                <h2>Clinical Studies</h2>
+                <p>Malinda et al. (1999) showed wound healing and angiogenesis (PubMed: 10347252); Goldstein et al. (2001) supported tissue repair (PubMed: 11595687).</p>
+                <h2>Dosage</h2>
+                <p>5–10 mg/week SubQ, divided into 2–3 injections, cycled for 4–8 weeks. Administer 2–3 times weekly, often in the evening, with or without food for flexibility.</p>
+                <h2>Side Effects</h2>
+                <p>Nausea, headache; rare risks include allergic reactions.</p>
+                <h2>Long-Term Safety</h2>
+                <p>Limited human data; animal studies suggest safety, monitor for long-term effects.</p>
+                <h2>Legal Status</h2>
+                <p>Research chemical, widely available; source from reputable suppliers.</p>
+                <h2>Applications</h2>
+                <ul>
+                    <li>Injury recovery</li>
+                    <li>Wound care</li>
+                    <li>Joint health</li>
+                    <li>Skin health</li>
+                    <li>Cardiovascular health</li>
+                </ul>
+                <h2>Summary</h2>
+                <table>
+                    <tr><th>Aspect</th><th>Details</th></tr>
+                    <tr><td>Target</td><td>Tissue repair, actin</td></tr>
+                    <tr><td>Benefits</td><td>Injury recovery, wound healing, flexibility</td></tr>
+                    <tr><td>Dosage</td><td>5–10 mg/week SubQ, 2–3 times weekly</td></tr>
+                    <tr><td>Status</td><td>Research chemical</td></tr>
+                </table>
+            </div>
+        </div>
+    </section>
+    <section id="hgh" class="section">
+        <div class="container">
+            <h1>HGH</h1>
+            <div class="section-content">
+                <h2>What It Is & How It Works</h2>
+                <p>Human Growth Hormone (HGH) is a pituitary hormone stimulating IGF-1 production, promoting growth, protein synthesis, fat metabolism, and cellular repair.</p>
+                <h2>Benefits</h2>
+                <ul>
+                    <li><strong>Muscle Growth:</strong> Increases protein synthesis, enhancing muscle hypertrophy and strength.</li>
+                    <li><strong>Fat Loss:</strong> Enhances lipolysis, reducing adipose tissue, particularly visceral fat.</li>
+                    <li><strong>Bone Health:</strong> Improves bone density by stimulating osteoblast activity.</li>
+                    <li><strong>Skin Health:</strong> Promotes collagen synthesis, improving skin elasticity and reducing wrinkles.</li>
+                    <li><strong>Energy and Vitality:</strong> Boosts metabolism, enhancing physical and mental energy.</li>
+                </ul>
+                <h2>Clinical Studies</h2>
+                <p>Rudman et al. (1990) showed age-related benefits (PubMed: 2355952); Liu et al. (2007) reviewed body composition effects (PubMed: 17290753).</p>
+                <h2>Dosage</h2>
+                <p>0.1–0.4 mg/kg/week for medical use, or 1–2 IU/day for anti-aging, cycled for 6–12 months. Best administered in the evening on an empty stomach to mimic natural GH secretion, ideally 30–60 minutes before bed.</p>
+                <h2>Side Effects</h2>
+                <p>Fluid retention, joint pain, carpal tunnel syndrome; rare risks include diabetes, heart disease, or cancer with long-term use.</p>
+                <h2>Long-Term Safety</h2>
+                <p>Well-studied for medical use, safe with monitoring; non-medical use risks outweigh benefits, monitor for metabolic and cancer risks.</p>
+                <h2>Legal Status</h2>
+                <p>Prescription-only for medical use, illegal for non-medical use; source through healthcare providers.</p>
+                <h2>Applications</h2>
+                <ul>
+                    <li>Medical treatment (GH deficiency)</li>
+                    <li>Athletic enhancement (illegal)</li>
+                    <li>Anti-aging (not FDA-approved)</li>
+                    <li>Muscle building</li>
+                    <li>Fat loss</li>
+                </ul>
+                <h2>Summary</h2>
+                <table>
+                    <tr><th>Aspect</th><th>Details</th></tr>
+                    <tr><td>Target</td><td>IGF-1, muscle, fat</td></tr>
+                    <tr><td>Benefits</td><td>Muscle, fat loss, bone, skin, energy</td></tr>
+                    <tr><td>Dosage</td><td>1–2 IU/day SubQ, evening, empty stomach</td></tr>
+                    <tr><td>Status</td><td>Prescription-only</td></tr>
+                </table>
+            </div>
+        </div>
+    </section>
+    <section id="tadalafil" class="section">
+        <div class="container">
+            <h1>Tadalafil</h1>
+            <div class="section-content">
+                <h2>What It Is & How It Works</h2>
+                <p>Tadalafil is a PDE5 inhibitor that relaxes blood vessels, improving blood flow for erectile dysfunction, benign prostatic hyperplasia (BPH), and pulmonary arterial hypertension (PAH).</p>
+                <h2>Benefits</h2>
+                <ul>
+                    <li><strong>Erectile Function:</strong> Enhances penile blood flow, improving erectile response for sexual activity.</li>
+                    <li><strong>BPH Symptom Relief:</strong> Relaxes prostate and bladder muscles, reducing urinary symptoms like urgency.</li>
+                    <li><strong>Pulmonary Hypertension:</strong> Reduces pulmonary artery pressure, improving exercise capacity in PAH.</li>
+                </ul>
+                <h2>Clinical Studies</h2>
+                <p>Numerous studies confirm efficacy for ED, BPH, and PAH (e.g., PubMed: 12394709 for ED).</p>
+                <h2>Dosage</h2>
+                <p>2.5–5 mg/day oral for daily use, or 10–20 mg as needed for ED; once daily for BPH/PAH. Can be taken with or without food, at the same time daily for consistency, often evening for convenience.</p>
+                <h2>Side Effects</h2>
+                <p>Headache, flushing, back pain, nasal congestion; rare risks include priapism or vision changes.</p>
+                <h2>Long-Term Safety</h2>
+                <p>Well-studied, safe with monitoring; long-term use common for chronic conditions like BPH or PAH.</p>
+                <h2>Legal Status</h2>
+                <p>Prescription-only, widely available; source through healthcare providers.</p>
+                <h2>Applications</h2>
+                <ul>
+                    <li>Erectile dysfunction</li>
+                    <li>Benign prostatic hyperplasia</li>
+                    <li>Pulmonary arterial hypertension</li>
+                </ul>
+                <h2>Summary</h2>
+                <table>
+                    <tr><th>Aspect</th><th>Details</th></tr>
+                    <tr><td>Target</td><td>Blood vessels</td></tr>
+                    <tr><td>Benefits</td><td>Erectile function, BPH relief, PAH</td></tr>
+                    <tr><td>Dosage</td><td>2.5–20 mg/day oral, daily/as needed</td></tr>
+                    <tr><td>Status</td><td>Prescription-only</td></tr>
+                </table>
+            </div>
+        </div>
+    </section>
+    <section id="sermorelin" class="section">
+        <div class="container">
+            <h1>Sermorelin</h1>
+            <div class="section-content">
+                <h2>What It Is & How It Works</h2>
+                <p>Sermorelin is a GHRH analog that stimulates pituitary GH release, increasing IGF-1 levels to promote anabolic effects with a shorter half-life than CJC-1295.</p>
+                <h2>Benefits</h2>
+                <ul>
+                    <li><strong>Muscle Growth:</strong> Enhances protein synthesis, increasing lean muscle mass via GH/IGF-1.</li>
+                    <li><strong>Fat Loss:</strong> Increases lipolysis, reducing fat stores, particularly visceral fat.</li>
+                    <li><strong>Anti-Aging:</strong> Improves skin elasticity, energy, and vitality through GH-mediated repair.</li>
+                    <li><strong>Recovery:</strong> Speeds tissue repair post-exercise or injury by promoting cell regeneration.</li>
+                    <li><strong>Metabolic Health:</strong> Enhances insulin sensitivity, supporting glucose metabolism.</li>
+                </ul>
+                <h2>Clinical Studies</h2>
+                <p>Walker (2006) showed GH stimulation in humans (PubMed: 16822960); used in pediatric GH deficiency trials.</p>
+                <h2>Dosage</h2>
+                <p>100–300 mcg/day SubQ, cycled for 8–12 weeks. Best administered in the evening on an empty stomach, 30–60 minutes before bed, to align with natural GH secretion peaks.</p>
+                <h2>Side Effects</h2>
+                <p>Flushing, headache, mild nausea; rare risks include insulin resistance or joint pain.</p>
+                <h2>Long-Term Safety</h2>
+                <p>Limited long-term data; short-term studies indicate safety, monitor for GH-related risks.</p>
+                <h2>Legal Status</h2>
+                <p>Prescription-only for GH deficiency; grey market for other uses, source from reputable suppliers.</p>
+                <h2>Applications</h2>
+                <ul>
+                    <li>Muscle building</li>
+                    <li>Weight loss</li>
+                    <li>Anti-aging</li>
+                    <li>Injury recovery</li>
+                    <li>Metabolic enhancement</li>
+                </ul>
+                <h2>Summary</h2>
+                <table>
+                    <tr><th>Aspect</th><th>Details</th></tr>
+                    <tr><td>Target</td><td>Pituitary gland</td></tr>
+                    <tr><td>Benefits</td><td>Muscle, fat loss, anti-aging, recovery</td></tr>
+                    <tr><td>Dosage</td><td>100–300 mcg/day SubQ, evening, empty stomach</td></tr>
+                    <tr><td>Status</td><td>Prescription/grey</td></tr>
+                </table>
+            </div>
+        </div>
+    </section>
+    <section id="ghrp6" class="section">
+        <div class="container">
+            <h1>GHRP-6</h1>
+            <div class="section-content">
+                <h2>What It Is & How It Works</h2>
+                <p>GHRP-6 is a growth hormone-releasing peptide that mimics ghrelin, stimulating GH release from the pituitary, increasing IGF-1 and appetite.</p>
+                <h2>Benefits</h2>
+                <ul>
+                    <li><strong>Muscle Growth:</strong> Enhances protein synthesis, increasing lean muscle mass via GH/IGF-1.</li>
+                    <li><strong>Fat Loss:</strong> Promotes lipolysis, reducing fat stores by boosting metabolism.</li>
+                    <li><strong>Anti-Aging:</strong> Improves skin elasticity and energy through GH-mediated cellular repair.</li>
+                    <li><strong>Recovery:</strong> Speeds tissue repair post-exercise or injury by promoting cell regeneration.</li>
+                    <li><strong>Appetite Stimulation:</strong> Increases hunger, supporting muscle gain in bulking phases.</li>
+                </ul>
+                <h2>Clinical Studies</h2>
+                <p>Bowers et al. (1992) showed GH stimulation in humans (PubMed: 1548337); limited recent human trials.</p>
+                <h2>Dosage</h2>
+                <p>100–300 mcg/day SubQ, often split into 2–3 doses, cycled for 8–12 weeks. Best administered on an empty stomach, morning and evening, to maximize GH release; avoid food 2 hours prior.</p>
+                <h2>Side Effects</h2>
+                <p>Increased appetite, flushing, headache; rare risks include insulin resistance or water retention.</p>
+                <h2>Long-Term Safety</h2>
+                <p>Limited long-term data; short-term studies suggest safety, monitor for GH-related risks.</p>
+                <h2>Legal Status</h2>
+                <p>Research-only, grey market common; source from reputable suppliers with a prescription.</p>
+                <h2>Applications</h2>
+                <ul>
+                    <li>Muscle building</li>
+                    <li>Weight loss</li>
+                    <li>Anti-aging</li>
+                    <li>Injury recovery</li>
+                    <li>Appetite stimulation</li>
+                </ul>
+                <h2>Summary</h2>
+                <table>
+                    <tr><th>Aspect</th><th>Details</th></tr>
+                    <tr><td>Target</td><td>Pituitary gland</td></tr>
+                    <tr><td>Benefits</td><td>Muscle, fat loss, anti-aging, recovery</td></tr>
+                    <tr><td>Dosage</td><td>100–300 mcg/day SubQ, morning/evening, empty stomach</td></tr>
+                    <tr><td>Status</td><td>Research-only</td></tr>
+                </table>
+            </div>
+        </div>
+    </section>
+    <section id="thymosinalpha1" class="section">
+        <div class="container">
+            <h1>Thymosin Alpha-1</h1>
+            <div class="section-content">
+                <h2>What It Is & How It Works</h2>
+                <p>Thymosin Alpha-1 is a synthetic peptide derived from thymosin, modulating immune function by enhancing T-cell activity and cytokine production.</p>
+                <h2>Benefits</h2>
+                <ul>
+                    <li><strong>Immune Support:</strong> Enhances T-cell and dendritic cell function, improving immune response to infections.</li>
+                    <li><strong>Antiviral Activity:</strong> Boosts immunity against viral infections like hepatitis B and C.</li>
+                    <li><strong>Anti-Aging:</strong> Supports immune health, reducing age-related immune decline.</li>
+                    <li><strong>Cancer Support:</strong> Potential to enhance immune surveillance, reducing cancer risk.</li>
+                    <li><strong>Inflammation Regulation:</strong> Balances inflammatory responses, aiding chronic conditions.</li>
+                </ul>
+                <h2>Clinical Studies</h2>
+                <p>Eckert et al. (1999) showed immune enhancement in hepatitis treatment (PubMed: 10401775); FDA-approved for hepatitis in some countries.</p>
+                <h2>Dosage</h2>
+                <p>1.6–3.2 mg SubQ, 2–3 times weekly, ongoing or cycled for 6–12 weeks. Can be administered in the evening, with or without food, for flexibility.</p>
+                <h2>Side Effects</h2>
+                <p>Mild fatigue; rare risks include allergic reactions.</p>
+                <h2>Long-Term Safety</h2>
+                <p>Well-studied for hepatitis, safe with monitoring; limited data for non-medical use.</p>
+                <h2>Legal Status</h2>
+                <p>Prescription-only in some countries for hepatitis; grey market for other uses, source from reputable suppliers.</p>
+                <h2>Applications</h2>
+                <ul>
+                    <li>Immune support</li>
+                    <li>Antiviral therapy</li>
+                    <li>Anti-aging</li>
+                    <li>Cancer support</li>
+                    <li>Inflammation regulation</li>
+                </ul>
+                <h2>Summary</h2>
+                <table>
+                    <tr><th>Aspect</th><th>Details</th></tr>
+                    <tr><td>Target</td><td>Immune system</td></tr>
+                    <tr><td>Benefits</td><td>Immunity, antiviral, anti-aging, cancer support</td></tr>
+                    <tr><td>Dosage</td><td>1.6–3.2 mg SubQ, 2–3 times weekly</td></tr>
+                    <tr><td>Status</td><td>Prescription/grey</td></tr>
+                </table>
+            </div>
+        </div>
+    </section>
+    <script>
+        let lastScrollTop = 0;
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+            if (currentScroll > lastScrollTop) {
+                nav.classList.add('hidden');
+            } else {
+                nav.classList.remove('hidden');
+            }
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+        });
+        document.querySelectorAll('.section h1').forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                content.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
