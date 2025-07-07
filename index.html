@@ -5,79 +5,140 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Peptide Powerhouse: A Comprehensive Guide</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Open Sans', sans-serif; background: linear-gradient(180deg, #121212 0%, #1E1E1E 100%);
-            color: #E0E0E0; line-height: 1.7; padding-top: 70px;
+            font-family: 'Open Sans', sans-serif; line-height: 1.7; padding-top: 60px;
+            transition: background-color 0.5s, color 0.5s;
         }
-        nav {
-            position: fixed; top: 0; left: 0; width: 100%; background: #1E1E1E; z-index: 1000;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.6); padding: 0.5rem 1rem;
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 0.5rem;
-            transition: transform 0.3s ease;
+        body.dark { background: linear-gradient(180deg, #121212 0%, #1E1E1E 100%); color: #E0E0E0; }
+        body.light { background: linear-gradient(180deg, #F5F5F5 0%, #E0E0E0 100%); color: #333333; }
+        body.neon { background: linear-gradient(180deg, #1A0D2E 0%, #2E1A5A 100%); color: #E0E0E0; }
+        .navbar {
+            position: fixed; top: 0; right: 0; z-index: 1000; padding: 1rem;
         }
-        nav.hidden { transform: translateY(-100%); }
-        nav a {
-            color: #00F5D4; text-decoration: none; font-weight: 600; font-size: 0.75rem;
-            padding: 0.4rem; border-radius: 5px; text-align: center; transition: background-color 0.3s, color 0.3s;
+        .hamburger {
+            font-size: 1.5rem; cursor: pointer; color: #00F5D4; transition: color 0.3s;
         }
-        nav a:hover { background-color: #00B7EB; color: #121212; }
+        body.light .hamburger { color: #007BFF; }
+        body.neon .hamburger { color: #FF00FF; }
+        .hamburger:hover { transform: scale(1.1); }
+        .nav-menu {
+            position: fixed; top: 0; right: -100%; width: 250px; height: 100%;
+            background: #1E1E1E; box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+            display: flex; flex-direction: column; padding: 2rem 1rem;
+            transition: right 0.3s ease-in-out;
+        }
+        body.light .nav-menu { background: #FFFFFF; }
+        body.neon .nav-menu { background: #2E1A5A; }
+        .nav-menu.active { right: 0; }
+        .nav-menu a {
+            color: #00F5D4; text-decoration: none; font-weight: 600; font-size: 0.9rem;
+            padding: 0.5rem; margin: 0.2rem 0; border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s;
+        }
+        body.light .nav-menu a { color: #007BFF; }
+        body.neon .nav-menu a { color: #00FFFF; }
+        .nav-menu a:hover {
+            background-color: #00B7EB; color: #121212; transform: scale(1.05);
+        }
+        body.light .nav-menu a:hover { background-color: #005B99; color: #FFFFFF; }
+        body.neon .nav-menu a:hover { background-color: #FF00FF; color: #121212; }
+        .theme-toggle {
+            position: fixed; top: 1rem; left: 1rem; font-size: 1.5rem; cursor: pointer;
+            color: #00F5D4; transition: color 0.3s, transform 0.3s;
+        }
+        body.light .theme-toggle { color: #007BFF; }
+        body.neon .theme-toggle { color: #FF00FF; }
+        .theme-toggle:hover { transform: scale(1.1); }
         .section {
-            margin: 2rem 0; padding: 2rem; background: #1E1E1E; border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3); max-width: 900px; margin-left: auto; margin-right: auto;
+            margin: 2rem; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            max-width: 900px; margin-left: auto; margin-right: auto; transition: background-color 0.5s;
         }
+        body.dark .section { background: #1E1E1E; }
+        body.light .section { background: #FFFFFF; }
+        body.neon .section { background: #2E1A5A; }
         .section h1 {
-            font-family: 'Montserrat', sans-serif; color: #00F5D4; font-size: 2rem;
-            font-weight: 900; margin-bottom: 1.5rem; text-align: center; cursor: pointer;
+            font-family: 'Montserrat', sans-serif; font-size: 2rem; font-weight: 900;
+            margin-bottom: 1.5rem; text-align: center; cursor: pointer;
+            transition: color 0.5s;
         }
-        .section-content { display: none; }
-        .section-content.active { display: block; }
-        h2 { color: #00B7EB; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.5rem; margin: 1.5rem 0 1rem; }
+        body.dark .section h1 { color: #00F5D4; }
+        body.light .section h1 { color: #007BFF; }
+        body.neon .section h1 { color: #FF00FF; }
+        .section-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-in-out; }
+        .section-content.active { max-height: 3000px; }
+        h2 {
+            font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.5rem;
+            margin: 1.5rem 0 1rem; transition: color 0.5s;
+        }
+        body.dark h2 { color: #00B7EB; }
+        body.light h2 { color: #005B99; }
+        body.neon h2 { color: #00FFFF; }
         p, ul { margin-bottom: 1.5rem; font-size: 0.95rem; }
         ul { list-style-type: disc; margin-left: 2rem; }
-        table { width: 100%; border-collapse: collapse; background: #252525; border-radius: 5px; overflow: hidden; }
-        th, td { padding: 0.8rem; border: 1px solid #00B7EB; text-align: left; font-size: 0.9rem; }
-        th { background: #00B7EB; color: #121212; font-weight: 600; }
+        table { width: 100%; border-collapse: collapse; border-radius: 5px; overflow: hidden; }
+        body.dark table { background: #252525; }
+        body.light table { background: #F0F0F0; }
+        body.neon table { background: #3A2B6B; }
+        th, td { padding: 0.8rem; border: 1px solid; text-align: left; font-size: 0.9rem; }
+        body.dark th, body.dark td { border-color: #00B7EB; }
+        body.light th, body.light td { border-color: #005B99; }
+        body.neon th, body.neon td { border-color: #00FFFF; }
+        th { font-weight: 600; }
+        body.dark th { background: #00B7EB; color: #121212; }
+        body.light th { background: #005B99; color: #FFFFFF; }
+        body.neon th { background: #FF00FF; color: #121212; }
         @media (max-width: 600px) {
-            body { padding-top: 60px; }
-            nav a { font-size: 0.65rem; padding: 0.3rem; }
-            .section { padding: 1.5rem; margin: 1rem; }
-            h1 { font-size: 1.6rem; }
+            body { padding-top: 50px; }
+            .navbar, .theme-toggle { padding: 0.5rem; }
+            .nav-menu { width: 200px; }
+            .nav-menu a { font-size: 0.8rem; padding: 0.4rem; }
+            .section { margin: 1rem; padding: 1.5rem; }
+            .section h1 { font-size: 1.6rem; }
             h2 { font-size: 1.3rem; }
             p, ul, th, td { font-size: 0.85rem; }
         }
     </style>
 </head>
-<body>
-    <nav id="nav">
-        <a href="#ss31">SS-31</a>
-        <a href="#cjc1295">CJC-1295</a>
-        <a href="#ipamorelin">Ipamorelin</a>
-        <a href="#tesamorelin">Tesamorelin</a>
-        <a href="#epitalon">Epitalon</a>
-        <a href="#motsc">MOTS-c</a>
-        <a href="#igf1lr3">IGF-1 LR3</a>
-        <a href="#retatrutide">Retatrutide</a>
-        <a href="#aod9604">AOD-9604</a>
-        <a href="#lcarnitine">L-Carnitine</a>
-        <a href="#nad">NAD+</a>
-        <a href="#ghkcu">GHK-Cu</a>
-        <a href="#ahkcu">AHK-Cu</a>
-        <a href="#glowstack">Glow Stack</a>
-        <a href="#bpc157">BPC-157</a>
-        <a href="#tb500">TB-500</a>
-        <a href="#hgh">HGH</a>
-        <a href="#tadalafil">Tadalafil</a>
-        <a href="#sermorelin">Sermorelin</a>
-        <a href="#ghrp6">GHRP-6</a>
-        <a href="#thymosinalpha1">Thymosin Alpha-1</a>
-    </nav>
+<body class="dark">
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </div>
+    <div class="navbar">
+        <div class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="nav-menu" id="navMenu">
+            <a href="#ss31">SS-31</a>
+            <a href="#cjc1295">CJC-1295</a>
+            <a href="#ipamorelin">Ipamorelin</a>
+            <a href="#tesamorelin">Tesamorelin</a>
+            <a href="#epitalon">Epitalon</a>
+            <a href="#motsc">MOTS-c</a>
+            <a href="#igf1lr3">IGF-1 LR3</a>
+            <a href="#retatrutide">Retatrutide</a>
+            <a href="#aod9604">AOD-9604</a>
+            <a href="#lcarnitine">L-Carnitine</a>
+            <a href="#nad">NAD+</a>
+            <a href="#ghkcu">GHK-Cu</a>
+            <a href="#ahkcu">AHK-Cu</a>
+            <a href="#glowstack">Glow Stack</a>
+            <a href="#bpc157">BPC-157</a>
+            <a href="#tb500">TB-500</a>
+            <a href="#hgh">HGH</a>
+            <a href="#tadalafil">Tadalafil</a>
+            <a href="#sermorelin">Sermorelin</a>
+            <a href="#ghrp6">GHRP-6</a>
+            <a href="#thymosinalpha1">Thymosin Alpha-1</a>
+        </div>
+    </div>
     <section id="intro" class="section">
         <div class="container">
             <h1>Peptide Powerhouse: A Comprehensive Guide</h1>
             <div class="section-content active">
-                <p>Explore the science, benefits, and applications of cutting-edge peptides for health, performance, and longevity. Click on any peptide to expand its details.</p>
+                <p>Explore the science, benefits, and applications of cutting-edge peptides for health, performance, and longevity. Use the menu to navigate and toggle themes for a personalized experience.</p>
             </div>
         </div>
     </section>
@@ -908,93 +969,4 @@
                 <h2>Clinical Studies</h2>
                 <p>Bowers et al. (1992) showed GH stimulation in humans (PubMed: 1548337); limited recent human trials.</p>
                 <h2>Dosage</h2>
-                <p>100–300 mcg/day SubQ, often split into 2–3 doses, cycled for 8–12 weeks. Best administered on an empty stomach, morning and evening, to maximize GH release; avoid food 2 hours prior.</p>
-                <h2>Side Effects</h2>
-                <p>Increased appetite, flushing, headache; rare risks include insulin resistance or water retention.</p>
-                <h2>Long-Term Safety</h2>
-                <p>Limited long-term data; short-term studies suggest safety, monitor for GH-related risks.</p>
-                <h2>Legal Status</h2>
-                <p>Research-only, grey market common; source from reputable suppliers with a prescription.</p>
-                <h2>Applications</h2>
-                <ul>
-                    <li>Muscle building</li>
-                    <li>Weight loss</li>
-                    <li>Anti-aging</li>
-                    <li>Injury recovery</li>
-                    <li>Appetite stimulation</li>
-                </ul>
-                <h2>Summary</h2>
-                <table>
-                    <tr><th>Aspect</th><th>Details</th></tr>
-                    <tr><td>Target</td><td>Pituitary gland</td></tr>
-                    <tr><td>Benefits</td><td>Muscle, fat loss, anti-aging, recovery</td></tr>
-                    <tr><td>Dosage</td><td>100–300 mcg/day SubQ, morning/evening, empty stomach</td></tr>
-                    <tr><td>Status</td><td>Research-only</td></tr>
-                </table>
-            </div>
-        </div>
-    </section>
-    <section id="thymosinalpha1" class="section">
-        <div class="container">
-            <h1>Thymosin Alpha-1</h1>
-            <div class="section-content">
-                <h2>What It Is & How It Works</h2>
-                <p>Thymosin Alpha-1 is a synthetic peptide derived from thymosin, modulating immune function by enhancing T-cell activity and cytokine production.</p>
-                <h2>Benefits</h2>
-                <ul>
-                    <li><strong>Immune Support:</strong> Enhances T-cell and dendritic cell function, improving immune response to infections.</li>
-                    <li><strong>Antiviral Activity:</strong> Boosts immunity against viral infections like hepatitis B and C.</li>
-                    <li><strong>Anti-Aging:</strong> Supports immune health, reducing age-related immune decline.</li>
-                    <li><strong>Cancer Support:</strong> Potential to enhance immune surveillance, reducing cancer risk.</li>
-                    <li><strong>Inflammation Regulation:</strong> Balances inflammatory responses, aiding chronic conditions.</li>
-                </ul>
-                <h2>Clinical Studies</h2>
-                <p>Eckert et al. (1999) showed immune enhancement in hepatitis treatment (PubMed: 10401775); FDA-approved for hepatitis in some countries.</p>
-                <h2>Dosage</h2>
-                <p>1.6–3.2 mg SubQ, 2–3 times weekly, ongoing or cycled for 6–12 weeks. Can be administered in the evening, with or without food, for flexibility.</p>
-                <h2>Side Effects</h2>
-                <p>Mild fatigue; rare risks include allergic reactions.</p>
-                <h2>Long-Term Safety</h2>
-                <p>Well-studied for hepatitis, safe with monitoring; limited data for non-medical use.</p>
-                <h2>Legal Status</h2>
-                <p>Prescription-only in some countries for hepatitis; grey market for other uses, source from reputable suppliers.</p>
-                <h2>Applications</h2>
-                <ul>
-                    <li>Immune support</li>
-                    <li>Antiviral therapy</li>
-                    <li>Anti-aging</li>
-                    <li>Cancer support</li>
-                    <li>Inflammation regulation</li>
-                </ul>
-                <h2>Summary</h2>
-                <table>
-                    <tr><th>Aspect</th><th>Details</th></tr>
-                    <tr><td>Target</td><td>Immune system</td></tr>
-                    <tr><td>Benefits</td><td>Immunity, antiviral, anti-aging, cancer support</td></tr>
-                    <tr><td>Dosage</td><td>1.6–3.2 mg SubQ, 2–3 times weekly</td></tr>
-                    <tr><td>Status</td><td>Prescription/grey</td></tr>
-                </table>
-            </div>
-        </div>
-    </section>
-    <script>
-        let lastScrollTop = 0;
-        const nav = document.getElementById('nav');
-        window.addEventListener('scroll', () => {
-            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-            if (currentScroll > lastScrollTop) {
-                nav.classList.add('hidden');
-            } else {
-                nav.classList.remove('hidden');
-            }
-            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-        });
-        document.querySelectorAll('.section h1').forEach(header => {
-            header.addEventListener('click', () => {
-                const content = header.nextElementSibling;
-                content.classList.toggle('active');
-            });
-        });
-    </script>
-</body>
-</html>
+                <p>100–300 mcg/day SubQ, often split into 2–3 doses, cycled for 8–12 weeks. Best administered on an empty stomach, morning
